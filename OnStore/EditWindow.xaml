@@ -1,0 +1,205 @@
+﻿<Window x:Class="OnStore.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnStore"
+        mc:Ignorable="d"
+        Title="EditWindow" Height="500" Width="400">
+    
+    
+    <Grid x:Name="grid">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Image 
+             Height="250" 
+             Width="300"
+             Name="image"
+             Source="{Binding Product.Image_Source}">
+            
+            </Image>
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Label
+                Height="26"
+                Width="70"
+                Content="Məhsul"
+                FontSize="15"
+                Margin="-310,-150,0,0"
+                FontWeight="Bold">
+                
+            </Label>
+
+            <Border 
+                Height="30"
+                Width="350"
+                CornerRadius="10"
+                Background="LightGray"
+                Margin="19,-80,0,0">
+
+                <TextBox 
+                  FontSize="17"
+                  Height="30"
+                  Width="335"
+                  Margin="2,0,0,0"
+                  Text="{Binding Product.Name,UpdateSourceTrigger=PropertyChanged}"
+                  BorderThickness="0"
+                  Background="LightGray"
+                  Name="txtbox_Name"
+                >
+
+                </TextBox>
+
+            </Border>
+
+            <Label
+                Height="29"
+                Width="70"
+                Content="Qiymət"
+                FontSize="15"
+                Margin="-310,-20,0,0"
+                 FontWeight="Bold">
+
+            </Label>
+
+            <Border 
+                Height="30"
+                Width="350"
+                CornerRadius="10"
+                Background="LightGray"
+                Margin="19,40,0,0">
+
+                <Grid>
+
+                    <Label
+                        Height="30"
+                        Width="20"
+                        Margin="-330,-6,0,0"
+                        Content="$"
+                        FontSize="17"
+                        FontWeight="Bold">
+                        
+                    </Label>
+                    
+                    <TextBox 
+                        
+                       FontSize="17"
+                       Height="30"
+                       Width="320"
+                       Margin="10,0,0,0"
+                       Text="{Binding Product.Price,UpdateSourceTrigger=PropertyChanged}"
+                       BorderThickness="0"
+                       Background="LightGray"
+                       Name="txtbox_price"
+                        Padding="0,2,0,0"
+                       >
+
+                    </TextBox>
+                </Grid>
+
+                
+
+            </Border>
+
+
+            <Border 
+                Height="40" 
+                Width="100"
+                Margin="0,135,-270,0"
+                Background="#C8DBEB"
+                CornerRadius="25"
+                Visibility="{Binding Visibilty}" >
+
+                <Button 
+                    Height="30"
+                    Width="70"
+                    Background="#C8DBEB"
+                    Content="ADD"
+                    FontSize="15"
+                    BorderThickness="0"
+                    Name="Add"
+                    Click="Add_Click"
+                    >
+                    <Button.Style>
+
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Green"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True" >
+                                    <Setter Property="Background" Value="DarkGoldenrod"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                
+            </Border>
+
+            <Border 
+                Height="40" 
+                Width="100"
+                Margin="-270,135,0,0"
+                Background="#C8DBEB"
+                CornerRadius="25"
+                Visibility="{Binding Visibilty}" >
+
+                <Button 
+                    Height="30"
+                    Width="75"
+                    Background="#C8DBEB"
+                    Content="Image Add"
+                    FontSize="15"
+                    BorderThickness="0"
+                    Name="Image_add"
+                    Click="Image_add_Click"
+                    >
+
+                    <Button.Style>
+
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Green"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True" >
+                                    <Setter Property="Background" Value="DarkGoldenrod"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                </Button>
+
+            </Border>
+
+
+        </Grid>
+
+        
+        
+    </Grid>
+</Window>
